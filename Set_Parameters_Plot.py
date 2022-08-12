@@ -23,6 +23,7 @@ RMS = Root Mean Square
 '''
 
 def Cargas(first_strip_pos,last_strip_pos,strip_width,pitch,s,sig_noise):
+    
     u0=-2*pitch  #First position of the electron Cloud relative to the readout strips (u = mean value of the gaussian)
     du=pitch/10  #Step for the electron cloud positions
     n=int(abs(u0*2)/du)+1
