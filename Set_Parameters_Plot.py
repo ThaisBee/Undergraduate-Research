@@ -22,7 +22,7 @@ prefix "s" means standard deviation or sigma σ
 RMS = Root Mean Square 
 '''
 
-def Cargas(first_strip_pos,last_strip_pos,strip_width,pitch,s,sig_noise):
+def Charge_ErrorPositions_list(first_strip_pos,last_strip_pos,strip_width,pitch,s,sig_noise):
     
     u0=-2*pitch  #First position of the electron Cloud relative to the readout strips (u = mean value of the gaussian)
     du=pitch/10  #Step for the electron cloud positions
@@ -125,7 +125,7 @@ sE_WAlnC_Matrix=[]
 for i in range(len(slist)):
     s=slist[i]
     sig_noise=snoiselist[i]
-    x,Q,sQ,E_WAC,sE_WAC,E_WACC,sE_WACC,E_WAlnC,sE_WAlnC=Cargas(first_strip_pos, last_strip_pos, strip_width, pitch, s,sig_noise)    
+    x,Q,sQ,E_WAC,sE_WAC,E_WACC,sE_WACC,E_WAlnC,sE_WAlnC=Charge_ErrorPositions_list(first_strip_pos, last_strip_pos, strip_width, pitch, s,sig_noise)    
     
     Charges_Matrix.append(Q)
     sCharges_Matrix.append(sQ)
