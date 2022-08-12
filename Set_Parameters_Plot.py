@@ -55,6 +55,7 @@ def RMS_func(E_WAC_Matrix,sE_WAC_Matrix,E_WACC_Matrix,sE_WACC_Matrix,E_WAlnC_Mat
     sRMS_WAC=np.zeros(len(slist))
     sRMS_WACC=np.zeros(len(slist))
     sRMS_WAlnC=np.zeros(len(slist))
+    
     for i in range(len(slist)):
         RMS_WAC[i]=np.sqrt(sum(E_WAC_Matrix[i]*E_WAC_Matrix[i])/len(E_WAC_Matrix[i]))
         RMS_WACC[i]=np.sqrt(sum(E_WACC_Matrix[i]*E_WACC_Matrix[i])/len(E_WACC_Matrix[i]))
@@ -74,6 +75,7 @@ def Mean_func(E_WAC_Matrix,sE_WAC_Matrix,E_WACC_Matrix,sE_WACC_Matrix,E_WAlnC_Ma
     sMean_WAC=np.zeros(len(slist))
     sMean_WACC=np.zeros(len(slist))
     sMean_WAlnC=np.zeros(len(slist))
+    
     for i in range(len(slist)):
         Mean_WAC[i]=(np.mean(E_WAC_Matrix[i]))
         Mean_WACC[i]=(np.mean(E_WACC_Matrix[i]))
