@@ -5,10 +5,10 @@ WAC = weighted average considering the charge as a weight
 WACC = weighted average considering the charge*charge as a weighet
 WAlnC = weighted average considering the ln(charge) as a weight
 
-These weights were chosen in order to evaluate the impact of lower and higher charges
- in the charge and position reconstructions. The logarithmic weight gives more 
- importance to lower charge values, the squared weight to the higher values, and the
- linear weight is between them. 
+These weights were chosen in order to evaluate the impact of lower and higher charges 
+widths in the charge and position reconstructions. The logarithmic weight gives more 
+importance to lower charge values, the squared weight to the higher values, and the
+linear weight is between them. 
 '''
 class Errors:
     def __init__(self,u,Charges,Positions):
