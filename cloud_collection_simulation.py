@@ -2,7 +2,6 @@ import numpy as np
 import math
 import matplotlib.pyplot as plt
 from scipy.integrate import quad
-
 from cluster import Cluster
 from errors import Errors
 
@@ -15,14 +14,13 @@ calculated using the three different methods.
 
 class Cloud_Collection_Simulation:
 
-    def __init__(self,first_strip_pos,last_strip_pos,strip_width,pitch,sigma,u,sig_noise,N=1000,seed=0.04):
-        self.first_strip_pos=first_strip_pos
-        self.last_strip_pos=last_strip_pos
+    def __init__(self,strip_width,pitch,sigma,u,sig_noise,Position_strips,N=1000,seed=0.04):
         self.strip_width=strip_width
         self.pitch=pitch
         self.s=sigma
         self.u=u
         self.sig=sig_noise
+        self.Position_strips=Position_strips
         self.seed=seed
         self.N=N
         
@@ -34,36 +32,18 @@ class Cloud_Collection_Simulation:
         return I[0]
     
     def Charge_StripPos(self):
-        p=self.first_strip_pos
-        Charges_strips=[]
-        Positions_strips=[]
-        i=0
-        
-        while p<(self.last_strip_pos):
-            Charges_strips.append(self.IntegraStrip(p))
-            Positions_strips.append(p)
-            p=p+self.pitch
-            i=i+1
-        return Charges_strips,Positions_strips
+        Charges_strips=[self.IntegraStrip(p) for p in self.Position_strips]
+        return Charges_strips,self.Position_strips
     
     def Monte_Carlo(self):
-        self.N=1000
-        #charges
+        #Collected Charge
         List_TotalCharge=np.zeros(self.N)
         List_TotalCharge_Cluster=np.zeros(self.N)
-        #recontrução de posição
+        #Position reconstruction Errors
         E_WAC_List=np.zeros(self.N)
         E_WACC_List=np.zeros(self.N)
         E_WAlnC_List=np.zeros(self.N)
-        
-        ns=[]
-        pN=self.N//1
-        
-        v=pN-1
-        while v<(self.N):
-            ns.append(v)
-            v=v+pN
-                           
+               
         Charge_strip,Position_strip=self.Charge_StripPos()
         
         for i in range(self.N):
@@ -72,8 +52,7 @@ class Cloud_Collection_Simulation:
             Charge_strip_noise=Charge_strip+Noise
             Sum_Charge=sum(Charge_strip_noise)
             List_TotalCharge[i]=Sum_Charge
-            cont=0
-
+        
             Charge_Cluster,Position_Cluster=Cluster(self.seed,Charge_strip_noise,Position_strip).Find_Cluster()
             
             '''
@@ -83,22 +62,41 @@ class Cloud_Collection_Simulation:
             '''
             
             if i==0:
-                plt.plot(Position_strip,Charge_strip_noise,"o", markersize=4,label="Charge collected by strips")
-                plt.plot(Position_Cluster,Charge_Cluster,"*",markersize=7,label="Cluster")
-                plt.legend(loc='upper right')
-                plt.title('Charge cloud centered on '+r'$\mu$='+"%2.2f"%(self.u)+' mm position, '+r'$\sigma$ '+str(self.s)+" mm")#+ r' $\mu$' +"%2.2f"%(self.u)+" mm e ")
-                plt.xlabel("Position of the strip center (mm)")
-                plt.ylabel("Charge collected by each strip (mm)")
-                plt.grid()
-                plt.ylim(-0.05,0.35)
-                plt.show()
+                '''fig, ax = plt.subplots()'''
                 
+                
+                
+                #En
+                '''ax.plot(Position_strip,Charge_strip_noise,"o", markersize=4,label="Charge collected by strips")
+                ax.plot(Position_Cluster,Charge_Cluster,"*",markersize=7,label="Cluster")
+                ax.legend(loc='upper right')
+                ax.title('Charge cloud centered on '+r'$\mu$='+"%2.2f"%(self.u)+' mm position, '+r'$\sigma$ '+str(self.s)+" mm")#+ r' $\mu$' +"%2.2f"%(self.u)+" mm e ")
+                ax.xlabel("Position of the strip center (mm)")
+                ax.ylabel("Charge collected by each strip (mm)")'''
+                #Pt
+                
+                '''
+                ax.plot(Position_strip,Charge_strip_noise,"o", markersize=4,label="Carga coletada pelas strips")
+                ax.plot(Position_Cluster,Charge_Cluster,"*",markersize=7,label="Cluster (nuvem de elétrons)")
+                ax.legend(loc='upper right')
+                fig.suptitle("Clusterização")
+                ax.set_xlabel("Posição do centro da fita (mm)")
+                ax.set_ylabel("Carga coletada por cada fita (mm)")
+                ax.grid()
+                ax.set_ylim(-0.05,0.35)
+                
+                textstr = '\n'.join((
+                r'$\mu=%.2f$' % (self.u, )+"mm",
+                r'$\sigma=%.2f$' % (self.s, )+"mm"
+                ))
+                props = dict(boxstyle='round', facecolor='wheat', alpha=0.5)
+                ax.text(0.08, 0.95, textstr, transform=ax.transAxes, fontsize=11,verticalalignment='top', bbox=props)
+
+                plt.show()
+                '''
             somaCharge_Cluster=sum(Charge_Cluster)
             List_TotalCharge_Cluster[i]=somaCharge_Cluster
                     
-            for k in Noise:
-                cont=cont+1
-
             Charge_Cluster=np.asarray(Charge_Cluster)
             Position_Cluster=np.asarray(Position_Cluster)
             
