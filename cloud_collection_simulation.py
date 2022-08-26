@@ -63,9 +63,7 @@ class Cloud_Collection_Simulation:
             
             if i==0:
                 '''fig, ax = plt.subplots()'''
-                
-                
-                
+
                 #En
                 '''ax.plot(Position_strip,Charge_strip_noise,"o", markersize=4,label="Charge collected by strips")
                 ax.plot(Position_Cluster,Charge_Cluster,"*",markersize=7,label="Cluster")
@@ -73,8 +71,8 @@ class Cloud_Collection_Simulation:
                 ax.title('Charge cloud centered on '+r'$\mu$='+"%2.2f"%(self.u)+' mm position, '+r'$\sigma$ '+str(self.s)+" mm")#+ r' $\mu$' +"%2.2f"%(self.u)+" mm e ")
                 ax.xlabel("Position of the strip center (mm)")
                 ax.ylabel("Charge collected by each strip (mm)")'''
-                #Pt
                 
+                #Pt
                 '''
                 ax.plot(Position_strip,Charge_strip_noise,"o", markersize=4,label="Carga coletada pelas strips")
                 ax.plot(Position_Cluster,Charge_Cluster,"*",markersize=7,label="Cluster (nuvem de elétrons)")
