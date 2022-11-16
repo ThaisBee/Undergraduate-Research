@@ -1,7 +1,10 @@
 This code was done during an undergraduated research "Comparing different methods of position
 reconstruction considering 1D readout of GEM detectors"
 
-The main code is "run.py". If you prefer you can use the Jupyter version, which shows the documentation of the project.
+The code which uses an analytical electron cloud is "run.py". 
+The code which uses a discrete electron cloud is "run.py". 
+
+If you prefer you can use the Jupyter version, which shows the documentation of the project.
 
 For more detailed information about this project, read the article:
 
