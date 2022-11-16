@@ -2,8 +2,8 @@ import numpy as np
 import pandas as pd
 
 #my libraries
-from cluster import Cluster
-from position_reconstruction import Position_Reconstruction
+from models.cluster import Cluster
+from models.position_reconstruction import Position_Reconstruction
 
 def Monte_Carlo(sig_noise,N,u,Charge_strip,Position_strip,seed,threshold):
     Data=[]                           

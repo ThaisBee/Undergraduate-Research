@@ -12,8 +12,8 @@ import numpy as np
 import pandas as pd
 
 #my libraries
-from strips_integrator import Strips_Integrator
-from monte_carlo import Monte_Carlo
+from models.strips_integrator import Strips_Integrator
+from models.monte_carlo import Monte_Carlo
 #%%
 
 '''
@@ -181,7 +181,7 @@ threshold=0
 slist=[0.2,0.25,0.3,0.35,0.4]
 #sigma for the white noise which is drawn from a gaussian distribution
 snoise=0.01
-N=1000   
+N=10
 
 df=Dataframe(strip_width,pitch,slist,snoise,N,strip_centers,electron_cloud_centers,seed,threshold)
 
