@@ -2,7 +2,7 @@ This code was done during an undergraduated research "Comparing different method
 reconstruction considering 1D readout of GEM detectors"
 
 The code which uses an analytical electron cloud is "run.py". 
-The code which uses a discrete electron cloud is "run.py". 
+The code which uses a discrete electron cloud is "run2.py". 
 
 If you prefer you can use the Jupyter version, which shows the documentation of the project.
 
