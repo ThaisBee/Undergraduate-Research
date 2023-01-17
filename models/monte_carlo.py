@@ -11,7 +11,7 @@ class Monte_Carlo:
         self,
         sig_noise: float,
         N: int,
-        u: int,
+        u: float,
         Charge_strip: list,
         Position_strip: list,
         seed: float,

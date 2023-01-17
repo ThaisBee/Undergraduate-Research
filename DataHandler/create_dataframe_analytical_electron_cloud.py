@@ -3,16 +3,16 @@ from models.monte_carlo import Monte_Carlo
 import pandas as pd
 
 def create_a_dataframe(
-    STRIP_WIDTH,
-    PITCH,
-    std_deviation_of_electron_clouds,
-    STD_DEVIATION_OF_THE_NOISE ,
-    NUMBER_OF_ELECTRON_CLOUDS,
-    Position_strips,
-    electron_cloud_centers,
-    SEED,
-    THRESHOLD,
-):
+    STRIP_WIDTH: float,
+    PITCH: float,
+    std_deviation_of_electron_clouds: list,
+    STD_DEVIATION_OF_THE_NOISE: float,
+    NUMBER_OF_ELECTRON_CLOUDS: int,
+    Position_strips: list,
+    electron_cloud_centers: list,
+    SEED: float,
+    THRESHOLD: float,
+) -> pd.DataFrame:
     """For the case when    PITCH=0.39mm, the electron cloud center is going to be reconstructed approximately -0.8mm<x<0.8mm
     Also the electron cloud center is going to be reconstructed with steps 10 times smaller than the strip PITCH"""
 
