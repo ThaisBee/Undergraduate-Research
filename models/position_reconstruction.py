@@ -13,21 +13,21 @@ linear weight is between them.
 
 
 class Position_Reconstruction:
-    def __init__(self, Charges, Positions):
+    def __init__(self, Charges: list, Positions: list):
         self.StripCharges = Charges
         self.StripPositions = Positions
 
-    def linear(self):
+    def linear(self) -> float:
         WA = sum(self.StripCharges * self.StripPositions) / sum(self.StripCharges)
         return WA
 
-    def quadratic(self):
+    def quadratic(self) -> float:
         WA = sum((self.StripCharges**2) * self.StripPositions) / sum(
             self.StripCharges**2
         )
         return WA
 
-    def logarithmic(self):
+    def logarithmic(self) -> float:
         charges = [np.log(k + 1) for k in self.StripCharges]
         WA = sum(charges * self.StripPositions) / sum(charges)
         return WA

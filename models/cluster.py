@@ -11,13 +11,13 @@ the positions n1 and n2. Which n1 represents the first strip of the cluster and 
 
 
 class Cluster:
-    def __init__(self, seed, threshold, Charges, Positions, zero=0):
+    def __init__(self, seed: float, threshold: float, Charges: list, Positions: list):
         self.seed = seed
         self.Q = Charges
         self.P = Positions
         self.zero = threshold
 
-    def find_seed(self):
+    def find_seed(self) -> int:
         i = 0
         Qi = self.Q[i]
         while Qi < self.seed:
@@ -26,7 +26,7 @@ class Cluster:
         seed_index = i
         return seed_index
 
-    def scans_left(self, n1):
+    def scans_left(self, n1: int) -> int:
         Qleft = self.Q[n1]
         while Qleft > self.zero and n1 != 0:
             n1 = n1 - 1
@@ -38,7 +38,7 @@ class Cluster:
             n1 = n1 + 1
             return n1
 
-    def scans_right(self, n2):
+    def scans_right(self, n2: int) -> int:
         Qright = self.Q[n2]
         last_index = len(self.Q) - 1
         while Qright > self.zero and n2 < last_index:
@@ -50,7 +50,7 @@ class Cluster:
             n2 = n2 - 1
             return n2
 
-    def Find_Cluster(self):
+    def Find_Cluster(self) -> tuple:
         if len([k for k in self.Q if k > self.seed]) == 0:
             raise NameError("All strips collected less charge than the seed value")
         seed_index = self.find_seed()

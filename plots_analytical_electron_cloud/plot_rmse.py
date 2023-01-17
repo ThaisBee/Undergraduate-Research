@@ -4,11 +4,11 @@ import numpy as np
 import pandas as pd
 
 
-def rmse(v):
+def rmse(v: list) -> float:
     return np.sqrt((v * v).sum() / len(v))
 
 
-def rmse_dataframe(std_deviation_of_electron_clouds, df):
+def rmse_dataframe(std_deviation_of_electron_clouds: list, df: pd.DataFrame) -> pd.DataFrame:
     Data = []
     for s in std_deviation_of_electron_clouds:
         Data.append(
@@ -32,7 +32,7 @@ def rmse_dataframe(std_deviation_of_electron_clouds, df):
     return rmse_df
 
 
-def plot_rmse(rmse_df, Labels, markers, markersizes):
+def plot_rmse(rmse_df: pd.DataFrame, Labels: dict, markers: list, markersizes: list) -> None:
     plt.title(Labels["Title"])
     plt.errorbar(
         rmse_df["s"],

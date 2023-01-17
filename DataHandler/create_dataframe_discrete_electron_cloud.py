@@ -24,17 +24,16 @@ def create_a_dataframe(
         Charge_strips = Strips_Integrator(
             STRIP_WIDTH, PITCH, STD_DEVIATION_OF_THE_NOISE, Position_strips
         ).ChargeBins_Strip(x_new_coordinate, charge_fraction)
-        (
-            Charge,
-            sCharge,
-            E_linear,
-            sE_linear,
-            E_quadratic,
-            sE_quadratic,
-            E_logarithmic,
-            sE_logarithmic,
-            first_evt_cluster,
-        ) = Monte_Carlo(STD_DEVIATION_OF_THE_NOISE, NUMBER_OF_ELECTRON_CLOUDS, u, Charge_strips, Position_strips, SEED, THRESHOLD)
+        monte_carlo_obj = Monte_Carlo(
+            STD_DEVIATION_OF_THE_NOISE , NUMBER_OF_ELECTRON_CLOUDS, u, Charge_strips, Position_strips, SEED, THRESHOLD
+        )
+        monte_carlo_obj.compute()
+        Charge, sCharge = monte_carlo_obj.charge
+        E_linear, sE_linear = monte_carlo_obj.linear_weight_error
+        E_quadratic, sE_quadratic = monte_carlo_obj.quadratic_weight_error
+        E_logarithmic, sE_logarithmic = monte_carlo_obj.logarithmic_weight_error
+        first_evt_cluster = monte_carlo_obj.first_evt_cluster
+        
         Data.append(
             [
                 STD_DEVIATION_OF_ELECTRON_CLOUD_FIT,
