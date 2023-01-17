@@ -1,4 +1,5 @@
-import matplotlib as plt
+import matplotlib.pyplot as plt
+import matplotlib.cm as cm
 
 
 def plot_hist2d(x, y, z, nbins):

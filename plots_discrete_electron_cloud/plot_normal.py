@@ -6,7 +6,7 @@ import matplotlib.patches as mpatches
 import matplotlib.transforms as transforms
 from matplotlib.ticker import MultipleLocator
 
-from data_handler.significativos import dois_significativos
+from DataHandler.significativos import dois_significativos
 
 import numpy as np
 

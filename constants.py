@@ -7,7 +7,7 @@ PITCH = 100 / 256  # (mm). The typical strip pitch is 0.39mm (100mm/256strips)
 ###############################################################################
 # Defining the strip certer positions
 # The region R is where we are going to calculate the charge collected by the strips is:
-#   first_strip_pos< R< last_strip_pos
+#   first_strip_pos< R < last_strip_pos
 # The strip_centers list define the position of the strip center
 ###############################################################################
 FIRST_STRIP_POSITION = -5  # (mm)

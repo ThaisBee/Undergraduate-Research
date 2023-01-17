@@ -12,9 +12,6 @@ import pandas as pd
 from scipy.optimize import curve_fit
 from scipy.interpolate import interp1d
 
-import matplotlib.pyplot as plt
-import matplotlib.cm as cm
-
 from constants import (
     STRIP_WIDTH,
     PITCH,
