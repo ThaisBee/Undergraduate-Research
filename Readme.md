@@ -4,7 +4,7 @@ reconstruction considering 1D readout of GEM detectors"
 The code which uses an analytical electron cloud is "run.py". 
 The code which uses a discrete electron cloud is "run2.py". 
 
-If you prefer you can use the Jupyter Nptebook version, which shows the documentation of the project.
+If you prefer you can use the Jupyter Notebook version, Position-Charge-Reconstruction.ipynb, which shows the documentation of the project.
 
 For more detailed information about this project, read the article:
 
