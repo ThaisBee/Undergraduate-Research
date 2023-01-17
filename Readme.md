@@ -1,8 +1,8 @@
-This code was done during an undergraduated research "Comparing different methods of position
+This code was done during the undergraduated research project "Comparing different methods of position
 reconstruction considering 1D readout of GEM detectors"
 
-The code which uses an analytical electron cloud is "run.py". 
-The code which uses a discrete electron cloud is "run2.py". 
+The code which uses an analytical electron cloud model is "run.py". 
+The code which uses a discrete electron cloud model is "run2.py". 
 
 The Jupyter Notebook version, Position-Charge-Reconstruction.ipynb, shows the documentation of the project.
 
