@@ -34,6 +34,7 @@ from DataHandler.create_dataframe_discrete_electron_cloud import create_a_datafr
 from plots_discrete_electron_cloud.plot_normal import plot_normal
 from plots_discrete_electron_cloud.plot_cluster import plot_cluster
 from plots_discrete_electron_cloud.plot_errors import plot_errors
+from plots_discrete_electron_cloud.plot_hist2d import plot_hist2d
 
 
 #%%
